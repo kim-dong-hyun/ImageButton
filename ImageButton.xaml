@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SyntaxStudio.ToggleImageButton">
+
+    <!-- 이미지 버튼 ex) VurexNVR 메인 메뉴 -->
+    <Style x:Key="ImageButton" TargetType="{x:Type local:ImageButton}">
+        <Setter Property="Foreground" Value="#FFB8B8B8" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ImageButton}">
+                    <Border x:Name="PART_Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <StackPanel>
+                            <Grid>
+                                <Image x:Name="PART_Icon"
+                                       Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CurrentImage}" 
+                                       Width="{TemplateBinding Width}" 
+                                       Height="{TemplateBinding Height}" />
+                                <ContentPresenter Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" 
+                                        Margin="0,0,0,12"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom">
+                                </ContentPresenter>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <!--
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PART_Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActiveIcon}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="PART_Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InActiveIcon}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    -->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 이미지 버튼 (센터)  -->
+    <Style x:Key="ImageButton1" TargetType="{x:Type local:ImageButton}">
+        <Setter Property="Foreground" Value="#FFB8B8B8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ImageButton}">
+                    <Border x:Name="PART_Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <StackPanel>
+                            <Grid>
+                                <Image x:Name="PART_Icon"
+                                       Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CurrentImage}" 
+                                       Width="{TemplateBinding Width}" 
+                                       Height="{TemplateBinding Height}" />
+                                <ContentPresenter Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" 
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                </ContentPresenter>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <!--
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PART_Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActiveIcon}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="PART_Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InActiveIcon}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    -->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
